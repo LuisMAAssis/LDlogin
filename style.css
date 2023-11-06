@@ -37,7 +37,8 @@ body * {
 
 /*# chama a id*/
 #container {
-    width: 360px;
+    width: 100%;
+    max-width: 588px;
     margin: 56px auto 0px; /*por regra, não alinha automaticamente encima e embaixo*/
     padding: 0 24px;
 }
@@ -83,11 +84,18 @@ body * {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+
+    animation: slide-back 0.4s;
 }
 
 .light #switch button {
     left: initial;
     right: 0;
+    animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover {
+    outline: 8px solid var(--highlight-color); 
 }
 
 #switch span {
@@ -165,4 +173,24 @@ footer {
     padding: 24px 0;
     text-align: center;
     font-size: 14px;
+}
+
+@keyframes slide-in {
+    from{
+        left: 0;
+    }
+
+    to{
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50px;
+    }
+
+    to {
+        left: 0;
+    }
 }
